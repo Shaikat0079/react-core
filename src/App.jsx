@@ -1,7 +1,11 @@
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import './App.css'
 import Counter from './Counter';
 import BatsMan from './BatsMan';
+import Users from './Users';
+
+const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users")
+.then(res=>res.json())
 
 function App() {
 
@@ -11,6 +15,9 @@ function App() {
 
   return (
     <>
+    <Suspense fallback ={<h2>🌀 Loading...</h2>} >
+    <Users fetchUsers = {fetchUsers}></Users>
+    </Suspense>
     <BatsMan></BatsMan>
       {/* <h3>Vite + React</h3>
       <button onClick={handleClick}>Click Me</button>
