@@ -35,6 +35,8 @@
 
 .card {
   padding: 2em;
+  border: 2px solid palevioletred;
+  border-radius: 20px;
 }
 
 .read-the-docs {
